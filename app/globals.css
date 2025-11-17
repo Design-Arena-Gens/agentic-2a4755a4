@@ -1,0 +1,345 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f7f4f0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #9dd6ff 0%, #f7f4f0 70%);
+  color: #1f1f1f;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem 2rem;
+  gap: 2.5rem;
+}
+
+.scene {
+  position: relative;
+  width: min(90vw, 360px);
+  height: min(90vw, 360px);
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #f4e9de 75%);
+  border-radius: 32px;
+  box-shadow:
+    0 15px 30px rgba(31, 31, 31, 0.12),
+    inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  top: 32px;
+  right: 36px;
+  width: 68px;
+  height: 68px;
+  background: radial-gradient(circle at 40% 40%, #ffe085 0%, #ffc35d 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 195, 93, 0.75);
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.grass {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 80px;
+  background: linear-gradient(180deg, #72b77b 0%, #4e9658 100%);
+  border-top-left-radius: 60% 35%;
+  border-top-right-radius: 60% 35%;
+}
+
+.man {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: breathe 4s infinite ease-in-out;
+}
+
+.head {
+  position: relative;
+  width: 120px;
+  height: 130px;
+  background: #fcd2b6;
+  border-radius: 55% 45% 50% 50%;
+  box-shadow: inset -4px -8px 12px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hair {
+  position: absolute;
+  top: -10px;
+  width: 110%;
+  height: 60px;
+  background: linear-gradient(180deg, #2f3242 0%, #1f2232 100%);
+  border-radius: 60% 60% 45% 45%;
+  transform: rotate(-2deg);
+}
+
+.ear {
+  position: absolute;
+  right: -14px;
+  top: 60px;
+  width: 26px;
+  height: 38px;
+  background: #f9c5a7;
+  border-radius: 60% 40% 50% 50%;
+  box-shadow: inset -3px 0 4px rgba(0, 0, 0, 0.12);
+}
+
+.eye {
+  position: absolute;
+  top: 48%;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.eye.left {
+  left: 34px;
+}
+
+.eye.right {
+  right: 34px;
+}
+
+.pupil {
+  position: absolute;
+  top: 10px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  background: #252525;
+  border-radius: 50%;
+}
+
+.nose {
+  position: absolute;
+  top: 64%;
+  width: 20px;
+  height: 30px;
+  background: #f5b99b;
+  border-radius: 40% 40% 55% 55%;
+  box-shadow: inset 0 -3px 4px rgba(0, 0, 0, 0.08);
+}
+
+.mouth {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 26px;
+  background: #b03a4e;
+  border-radius: 60% 60% 70% 70%;
+  overflow: hidden;
+}
+
+.teeth {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 10px;
+  background: #f6f6f6;
+  border-bottom-left-radius: 40% 60%;
+  border-bottom-right-radius: 40% 60%;
+}
+
+.body {
+  position: relative;
+  width: 160px;
+  height: 150px;
+  margin-top: -20px;
+}
+
+.torso {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 140px;
+  background: linear-gradient(180deg, #2f6db6 0%, #24518d 85%);
+  border-radius: 45% 45% 20% 20%;
+  box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.arm {
+  position: absolute;
+  top: 28px;
+  width: 44px;
+  height: 110px;
+  background: linear-gradient(180deg, #f9c5a7 0%, #f1a685 100%);
+  border-radius: 45% 45% 60% 60%;
+}
+
+.arm.left {
+  left: -6px;
+  transform: rotate(12deg);
+}
+
+.arm.right {
+  right: -14px;
+  transform-origin: top right;
+  transform: rotate(-50deg);
+  animation: lick 4s infinite ease-in-out;
+}
+
+.hand {
+  position: absolute;
+  bottom: 52px;
+  right: -12px;
+  width: 60px;
+  height: 60px;
+  background: #f7b492;
+  border-radius: 45%;
+  transform: rotate(-42deg);
+  box-shadow: inset -6px -6px 8px rgba(0, 0, 0, 0.12);
+  animation: lick 4s infinite ease-in-out;
+}
+
+.cone {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 80px;
+  background: linear-gradient(180deg, #e0a763 0%, #c9842f 100%);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scoop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 38px;
+  border-radius: 50%;
+  box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.18);
+}
+
+.vanilla {
+  bottom: 45px;
+  background: radial-gradient(circle at 40% 30%, #fff5d1 0%, #f4d786 80%);
+}
+
+.chocolate {
+  bottom: 78px;
+  background: radial-gradient(circle at 40% 30%, #7a4327 0%, #4b220f 80%);
+}
+
+.drip {
+  position: absolute;
+  bottom: 55px;
+  left: 12px;
+  width: 12px;
+  height: 24px;
+  background: #faf1cc;
+  border-radius: 60% 60% 40% 40%;
+  animation: drip 3.6s infinite ease-in-out;
+}
+
+.caption {
+  text-align: center;
+  max-width: 440px;
+  color: #2f3242;
+}
+
+.caption h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.caption p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #575d73;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+@keyframes lick {
+  0%,
+  100% {
+    transform: rotate(-42deg);
+  }
+  30% {
+    transform: rotate(-50deg);
+  }
+  60% {
+    transform: rotate(-38deg);
+  }
+}
+
+@keyframes drip {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translateY(6px);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 3rem;
+  }
+
+  .scene {
+    width: 92vw;
+    height: 92vw;
+  }
+}
